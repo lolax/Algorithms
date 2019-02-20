@@ -3,7 +3,15 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  needed = list(recipe.values())
+  available = list(ingredients.values())
+  if len(needed) > len(available):
+    return 0
+  batches = []
+  for i in range(len(needed)):
+    batches.append(available[i]//needed[i])
+  sortBatches = sorted(batches)
+  return sortBatches[0] 
 
 
 if __name__ == '__main__':
