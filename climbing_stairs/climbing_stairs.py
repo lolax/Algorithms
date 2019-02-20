@@ -2,9 +2,12 @@
 
 import sys
 
-def climbing_stairs(n, cache=None):
-  pass 
-
+def climbing_stairs(n, cache={0: 1, 1: 1, 2: 2, 3: 4}):
+  if n in cache:
+    return cache[n]
+  else:
+    cache[n] = climbing_stairs(n - 1, cache) + climbing_stairs(n - 2, cache) + climbing_stairs(n - 3, cache)
+    return cache[n]
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
